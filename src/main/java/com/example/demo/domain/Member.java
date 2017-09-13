@@ -16,7 +16,7 @@ public class Member {
     @Column(name = "member_idx")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int memberIdx;
-    //곳야ㅐ했습니다 빠이
+
     @Column(name = "member_name")
     private String memberName;
     @Column(name = "addr")
