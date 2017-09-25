@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.app.exception.NoResourcesException;
 import com.example.demo.domain.Member;
 import com.example.demo.dto.MemberDTO;
 import com.example.demo.repository.MemberRepository;
@@ -25,6 +26,9 @@ public class MemberService {
 
     public MemberDTO getOneMember(int memberIdx){
         Member member = memberRepository.findOne(memberIdx);
+        if(member == null){
+            throw new NoResourcesException("회원이 존재하지 않습니다.");
+        }
         MemberDTO memberDTO = new MemberDTO(member);
         return memberDTO;
     }

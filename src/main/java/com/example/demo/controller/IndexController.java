@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 
+import com.example.demo.app.exception.NoResourcesException;
 import com.example.demo.domain.Member;
 import com.example.demo.dto.MemberDTO;
 import com.example.demo.service.MemberService;
@@ -35,7 +36,6 @@ public class IndexController {
     @GetMapping("/member/{memberIdx}")
     public ResponseEntity get_one(@PathVariable int memberIdx) {
         MemberDTO memberDto = memberService.getOneMember(memberIdx);
-
         return new ResponseEntity(memberDto, HttpStatus.OK);
     }
 
